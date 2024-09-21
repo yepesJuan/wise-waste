@@ -80,7 +80,6 @@ export default function ImageUploaderAndApiCaller({ updateTableRow }: any) {
         if (parsedContent.volume_liters) {
           updateTableRow(parsedContent.volume_liters);
         }
-        console.log("Parsed JSON content:", parsedContent);
       } catch (error) {
         // If parsing fails, handle the error gracefully
         console.error("Failed to parse content as JSON:", error);

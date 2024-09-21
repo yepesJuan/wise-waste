@@ -45,7 +45,7 @@ const Table = ({ data }: any) => {
   const getColor = (percentage: number) => {
     if (percentage >= 70) return "red";
     if (percentage >= 55) return "orange";
-    if (percentage >= 40.1) return "#FFD700";
+    if (percentage >= 40.1) return "#ffd700";
     return "green";
   };
 
@@ -71,7 +71,7 @@ const Table = ({ data }: any) => {
           return (
             <tr {...row.getRowProps()} key={`row-${i}`}>
               {row.cells.map((cell, j) => (
-                <td {...cell.getCellProps()} key={`cell-${i}-${j}`} style={{ border: "solid 1px gray", padding: "10px" }}>
+                <td {...cell.getCellProps()} key={`cell-${i}-${j}`} style={{ background: i == 0 ? "#E0E0E0" : "", border: "solid 1px gray", padding: "10px", textShadow: i == 0 && j == 3 ? "1px 1.5px #000" : "" }}>
                   {cell.render("Cell")}
                 </td>
               ))}
