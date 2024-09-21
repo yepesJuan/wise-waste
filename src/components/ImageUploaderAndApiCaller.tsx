@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-// import Image from "next/image";
 
 export default function ImageUploaderAndApiCaller() {
   const [imageBase64, setImageBase64] = useState("");
@@ -20,62 +19,79 @@ export default function ImageUploaderAndApiCaller() {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
+
+      // Convert image to base64
       reader.onloadend = () => {
         const base64String = reader.result;
-        setImageBase64(base64String as string);
-        setImagePreview(base64String as string);
+        setImageBase64(base64String); // Set base64 string to state
+        setImagePreview(base64String); // Set preview for the image
       };
-      reader.readAsDataURL(file);
+
+      reader.readAsDataURL(file); // Read the file as Data URL
     }
   };
 
   const callApiWithImage = async () => {
     const sdk = "";
     try {
+      const body = JSON.stringify({
+        model: "gpt-4o",
+        temperature: 0,
+        response_format: { "type": "json_object" },
+        messages: [
+          {
+            role: "user",
+            content: [
+              {
+                type: "text",
+                text: "tell me the volume of the item being carried in the image; recall that the average of height of a human is 5 ft 6 in; take your best guess; return the result as json: { volume_liters: number }",
+              },
+              {
+                type: "image_url",
+                image_url: {
+                  url: imageBase64,
+                  detail: "low",
+                },
+              },
+            ],
+          },
+        ],
+      });
       const res = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${sdk}`,
         },
-        body: JSON.stringify({
-          model: "gpt-4",
-          messages: [
-            {
-              role: "system",
-              content: "You are an assistant who responds in JSON format.",
-            },
-            {
-              role: "user",
-              content:
-                "Provide the volume of a bag in liters given its dimensions: height 45 cm, width 30 cm, depth 15 cm.",
-            },
-          ],
-          max_tokens: 300,
-        }),
+        body,
       });
 
       const data = await res.json();
       const contentString = data.choices[0].message.content;
+
       let parsedContent;
+
       try {
+        // Try to parse the content string as JSON
         parsedContent = JSON.parse(
-          contentString.replace(/```json|```/g, "").trim()
+          contentString.replace(/```json|```/g, "").trim(),
         );
         console.log("Parsed JSON content:", parsedContent);
       } catch (error) {
+        // If parsing fails, handle the error gracefully
         console.error("Failed to parse content as JSON:", error);
-        parsedContent = contentString;
+        parsedContent = contentString; // Fallback to the raw content string
       }
-      setApiResponse(parsedContent);
+
+      setApiResponse(parsedContent); // Store API response
     } catch (error) {
       console.error("Error calling the API:", error);
     }
   };
 
   return (
-    <div style={containerStyle}>
-      <h2 style={headerStyle}>Upload Image and Call API</h2>
+    <div>
+      <h2>Upload Image and Call API</h2>
 
       {/* Input to select image */}
       <input
@@ -87,9 +103,9 @@ export default function ImageUploaderAndApiCaller() {
 
       {/* Image Preview */}
       {imagePreview && (
-        <div style={previewContainerStyle}>
-          <h3 style={previewHeaderStyle}>Image Preview:</h3>
-          <img src={imagePreview} alt="Preview" style={imageStyle} />
+        <div>
+          <h3>Image Preview:</h3>
+          <img src={imagePreview} alt="Preview" style={{ maxWidth: "300px" }} />
         </div>
       )}
 
@@ -102,20 +118,9 @@ export default function ImageUploaderAndApiCaller() {
 
       {/* API Response Display */}
       {apiResponse && (
-        <div style={responseContainerStyle}>
-          <h3 style={responseHeaderStyle}>API Response:</h3>
-          <pre
-            style={responseTextStyle}
-          >{`Bag Height in cm : ${apiResponse.height_cm}`}</pre>
-          <pre
-            style={responseTextStyle}
-          >{`Bag Depth in cm : ${apiResponse.depth_cm}`}</pre>
-          <pre
-            style={responseTextStyle}
-          >{`Bag Width in cm : ${apiResponse.width_cm}`}</pre>
-          <pre
-            style={responseTextStyle}
-          >{`Bag Volume in liters : ${apiResponse.volume_liters}`}</pre>
+        <div>
+          <h3>API Response:</h3>
+          <pre>{`Bag Volume in liters : ${apiResponse.volume_liters}`}</pre>
         </div>
       )}
     </div>
