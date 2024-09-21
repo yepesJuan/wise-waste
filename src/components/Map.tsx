@@ -35,10 +35,14 @@ const Map = () => {
   useEffect(() => {
     // Sample data, replace this w/ API call
     const data: Location[] = [
-      { id: 1, position: [26.2117, -80.2536], percentage: 70 },
-      { id: 2, position: [26.2129, -80.27], percentage: 55 },
-      { id: 3, position: [26.2009, -80.24], percentage: 40 },
-      { id: 4, position: [26.2109, -80.26], percentage: 5 },
+      { id: 1, position: [26.2117, -80.2536], percentage: 40 },
+      { id: 2, position: [26.2129, -80.27], percentage: 70 },
+      { id: 3, position: [26.2009, -80.24], percentage: 80 },
+      { id: 4, position: [26.2109, -80.26], percentage: 50 },
+      { id: 5, position: [26.201416875686448, -80.29275674512087], percentage: 40 },
+      { id: 6, position: [26.20890042402608, -80.26996197103979], percentage: 90 },
+      { id: 7, position: [26.21053863240992, -80.26394663829656], percentage:  20},
+      { id: 8, position: [26.213955922782503, -80.26017985688863], percentage: 30 },
     ];
     setLocations(data);
   }, []);

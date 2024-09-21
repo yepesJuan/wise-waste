@@ -15,7 +15,7 @@ const Navbar = () => {
         />
       </div>
 
-      <h1 style={titleStyle}>Wise Waste</h1>
+      <h1 style={titleStyle}>WiseWaste</h1>
     </nav>
   );
 };
