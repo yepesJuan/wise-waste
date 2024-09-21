@@ -5,10 +5,10 @@ import { useTable, Column } from "react-table";
 const Table = () => {
   const data = React.useMemo(
     () => [
-      { stand: "281", street: "sanibel", binPercentage: 40 },
-      { stand: "345", street: "lagos de campa", binPercentage: 20 },
-      { stand: "754", street: "haitus", binPercentage: 80 },
-      { stand: "232", street: "woodmount", binPercentage: 50 },
+      { stand: "281", street: "sanibel", binPercentage: 70 },
+      { stand: "345", street: "lagos de campa", binPercentage: 55 },
+      { stand: "754", street: "haitus", binPercentage: 40 },
+      { stand: "232", street: "woodmount", binPercentage: 5 },
       // Add more rows as needed
     ],
     []
@@ -33,11 +33,7 @@ const Table = () => {
         accessor: "binPercentage",
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         Cell: ({ value }: any) => (
-          <span
-            style={{
-              color: value >= 70 ? "red" : value >= 40 ? "orange" : "green",
-            }}
-          >
+          <span style={{ color: getColor(value), fontWeight: "bolder" }}>
             {value}%
           </span>
         ),
@@ -45,6 +41,13 @@ const Table = () => {
     ],
     []
   );
+
+  const getColor = (percentage: number) => {
+    if (percentage >= 70) return "red"; // High percentage
+    if (percentage >= 55) return "orange"; // Medium-high percentage
+    if (percentage >= 40) return "#FFD700"; // Medium-low percentage
+    return "green"; // Low percentage
+  };
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
