@@ -85,7 +85,7 @@ export default function ImageUploaderAndApiCaller() {
 
       {/* Button to call API */}
       {imageBase64 && (
-        <button onClick={callApiWithImage}>Call API with Image</button>
+        <button onClick={callApiWithImage}>Upload Image to Check Volume</button>
       )}
 
       {/* API Response Display */}
