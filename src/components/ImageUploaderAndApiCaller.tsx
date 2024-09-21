@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 
-export default function ImageUploaderAndApiCaller() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function ImageUploaderAndApiCaller({ updateTableRow }: any) {
   const [imageBase64, setImageBase64] = useState("");
   const [imagePreview, setImagePreview] = useState("");
 
@@ -23,8 +24,8 @@ export default function ImageUploaderAndApiCaller() {
       // Convert image to base64
       reader.onloadend = () => {
         const base64String = reader.result;
-        setImageBase64(base64String); // Set base64 string to state
-        setImagePreview(base64String); // Set preview for the image
+        setImageBase64(base64String as string); // Set base64 string to state
+        setImagePreview(base64String as string); // Set preview for the image
       };
 
       reader.readAsDataURL(file); // Read the file as Data URL
@@ -76,6 +77,9 @@ export default function ImageUploaderAndApiCaller() {
         parsedContent = JSON.parse(
           contentString.replace(/```json|```/g, "").trim(),
         );
+        if (parsedContent.volume_liters) {
+          updateTableRow(parsedContent.volume_liters);
+        }
         console.log("Parsed JSON content:", parsedContent);
       } catch (error) {
         // If parsing fails, handle the error gracefully
@@ -126,21 +130,6 @@ export default function ImageUploaderAndApiCaller() {
 }
 
 // Styles
-const containerStyle: React.CSSProperties = {
-  background: "#f9f9f9",
-  padding: "20px",
-  borderRadius: "8px",
-  maxWidth: "600px",
-  margin: "10px auto",
-  boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-  textAlign: "center",
-};
-
-const headerStyle: React.CSSProperties = {
-  marginBottom: "20px",
-  color: "#333",
-};
-
 const inputStyle: React.CSSProperties = {
   padding: "10px",
   borderRadius: "5px",
@@ -149,53 +138,6 @@ const inputStyle: React.CSSProperties = {
   cursor: "pointer",
 };
 
-const previewContainerStyle: React.CSSProperties = {
-  marginBottom: "20px",
-};
-
-const previewHeaderStyle: React.CSSProperties = {
-  color: "#555",
-  marginBottom: "10px",
-};
-
-const imageStyle: React.CSSProperties = {
-  maxWidth: "100%",
-  height: "auto",
-  borderRadius: "8px",
-  boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.1)",
-};
-
-const buttonStyle: React.CSSProperties = {
-  backgroundColor: "#4CAF50",
-  color: "white",
-  padding: "10px 20px",
-  border: "none",
-  borderRadius: "5px",
-  cursor: "pointer",
-  fontSize: "16px",
-  marginTop: "10px",
-  transition: "background-color 0.3s ease",
-};
-
-const responseContainerStyle: React.CSSProperties = {
-  marginTop: "20px",
-  textAlign: "left",
-  background: "#fff",
-  padding: "10px",
-  borderRadius: "5px",
-  boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.1)",
-};
-
-const responseHeaderStyle: React.CSSProperties = {
-  marginBottom: "10px",
-  color: "#333",
-};
-
-const responseTextStyle: React.CSSProperties = {
-  margin: "0",
-  color: "#666",
-  fontSize: "14px",
-};
 
 const inputBoxStyle: React.CSSProperties = {
   marginTop: "10px",
