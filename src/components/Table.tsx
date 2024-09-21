@@ -45,7 +45,7 @@ const Table = ({ data }: any) => {
   const getColor = (percentage: number) => {
     if (percentage >= 70) return "red";
     if (percentage >= 55) return "orange";
-    if (percentage >= 40) return "#FFD700";
+    if (percentage >= 40.1) return "#FFD700";
     return "green";
   };
 

@@ -84,7 +84,7 @@ export default function ImageUploaderAndApiCaller({ updateTableRow }: any) {
       } catch (error) {
         // If parsing fails, handle the error gracefully
         console.error("Failed to parse content as JSON:", error);
-        parsedContent = contentString; // Fallback to the raw content string
+        parsedContent = contentString; 
       }
 
       setApiResponse(parsedContent); // Store API response
