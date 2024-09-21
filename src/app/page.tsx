@@ -4,6 +4,7 @@
 // src/app/page.tsx
 import dynamic from "next/dynamic";
 import Table from "../components/Table";
+import ImageUploaderAndApiCaller from "@/components/ImageUploaderAndApiCaller";
 const Map = dynamic(() => import("../components/Map"), {
   ssr: false,
 });
@@ -19,6 +20,8 @@ export default function Home() {
           </div>
           <div style={{ width: "35%" }}>
             <Table />
+            <ImageUploaderAndApiCaller></ImageUploaderAndApiCaller>
+
           </div>
         </div>
       </div>

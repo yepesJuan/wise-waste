@@ -7,8 +7,10 @@ import { useTable, Column } from "react-table";
 const Table = () => {
   const data = React.useMemo(
     () => [
-      { stand: "0281", street: "Austurgerði 3", binPercentage: 40 },
-      { stand: "225", street: "Aðalbraut 1", binPercentage: 47 },
+      { stand: "281", street: "sanibel", binPercentage: 40 },
+      { stand: "345", street: "lagos de campa", binPercentage: 20 },
+      { stand: "754", street: "haitus", binPercentage: 80 },
+      { stand: "232", street: "woodmount", binPercentage: 50 },
       // Add more rows as needed
     ],
     []
