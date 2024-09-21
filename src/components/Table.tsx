@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-key */
-// src/components/Table.tsx
 "use client";
 import React from "react";
 import { useTable, Column } from "react-table";
@@ -54,7 +52,7 @@ const Table = () => {
   return (
     <table
       {...getTableProps()}
-      style={{ width: "100%", borderCollapse: "collapse" }}
+      style={{ width: "100%", borderCollapse: "collapse", background: "white" }}
     >
       <thead>
         {headerGroups.map((headerGroup, i) => (

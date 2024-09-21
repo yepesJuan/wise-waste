@@ -13,7 +13,6 @@ export default function Home() {
   try {
     return (
       <div className="dashboard">
-        <h1>Wise Waste</h1>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div style={{ width: "60%" }}>
             <Map />

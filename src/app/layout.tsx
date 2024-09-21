@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import "./globals.css";
 
 import type { ReactNode } from "react";
@@ -15,7 +16,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Header />
+        <div>{children}</div>
+      </body>
     </html>
   );
 }
