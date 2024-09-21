@@ -90,8 +90,8 @@ export default function ImageUploaderAndApiCaller() {
   };
 
   return (
-    <div>
-      <h2>Upload Image and Call API</h2>
+    <div style={inputBoxStyle}>
+       <h2>Upload Image to Check Volume</h2>
 
       {/* Input to select image */}
       <input
@@ -111,9 +111,7 @@ export default function ImageUploaderAndApiCaller() {
 
       {/* Button to call API */}
       {imageBase64 && (
-        <button onClick={callApiWithImage} style={buttonStyle}>
-          Call API with Image
-        </button>
+        <button onClick={callApiWithImage}>Upload Image to Check Volume</button>
       )}
 
       {/* API Response Display */}
@@ -197,4 +195,18 @@ const responseTextStyle: React.CSSProperties = {
   margin: "0",
   color: "#666",
   fontSize: "14px",
+};
+
+const inputBoxStyle: React.CSSProperties = {
+  marginTop: "10px",
+  display: "list-item",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "20px",
+  backgroundColor: "#4CAF50",
+  color: "#fff",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+  width: "100%",
+  zIndex: 1000,
+  height: "auto",
 };
