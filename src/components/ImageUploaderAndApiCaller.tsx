@@ -94,61 +94,108 @@ export default function ImageUploaderAndApiCaller({ updateTableRow }: any) {
   };
 
   return (
-    <div style={inputBoxStyle}>
-       <h2>Upload Image to Check Volume</h2>
-
-      {/* Input to select image */}
-      <input
-        type="file"
-        onChange={handleFileChange}
-        accept="image/*"
-        style={inputStyle}
-      />
-
-      {/* Image Preview */}
+    <div style={containerStyle}>
+      <div style={leftSectionStyle}>
+        <h2>Upload Image to Check Volume</h2>
+        <input
+          type="file"
+          onChange={handleFileChange}
+          accept="image/*"
+          style={inputStyle}
+        />
+        
+        {imageBase64 && (
+          <button onClick={callApiWithImage} style={uploadButtonStyle}>
+            Upload Image to Check Volume
+          </button>
+        )}
+  
+        {apiResponse && (
+          <div style={responseStyle}>
+            <h3>Calculated Volume:</h3>
+            <pre>{`Bag Volume in liters : ${apiResponse.volume_liters}`}</pre>
+          </div>
+        )}
+      </div>
+  
       {imagePreview && (
-        <div>
+        <div style={rightSectionStyle}>
           <h3>Image Preview:</h3>
-          <img src={imagePreview} alt="Preview" style={{ maxWidth: "300px" }} />
-        </div>
-      )}
-
-      {/* Button to call API */}
-      {imageBase64 && (
-        <button onClick={callApiWithImage}>Upload Image to Check Volume</button>
-      )}
-
-      {/* API Response Display */}
-      {apiResponse && (
-        <div>
-          <h3>API Response:</h3>
-          <pre>{`Bag Volume in liters : ${apiResponse.volume_liters}`}</pre>
+          <img src={imagePreview} alt="Preview" style={imageStyle} />
         </div>
       )}
     </div>
-  );
-}
-
-// Styles
-const inputStyle: React.CSSProperties = {
-  padding: "10px",
-  borderRadius: "5px",
-  border: "1px solid #ccc",
-  marginBottom: "20px",
-  cursor: "pointer",
-};
-
-
-const inputBoxStyle: React.CSSProperties = {
-  marginTop: "10px",
-  display: "list-item",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "20px",
-  backgroundColor: "#4CAF50",
-  color: "#fff",
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-  width: "100%",
-  zIndex: 1000,
-  height: "auto",
-};
+  );}
+  
+  // Styles
+  const containerStyle: React.CSSProperties = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    padding: "20px",
+    backgroundColor: "#f8f8f8",
+    borderRadius: "4px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    maxWidth: "1200px",
+    margin: "0 auto",
+  };
+  
+  const leftSectionStyle: React.CSSProperties = {
+    flex: 1,
+    marginRight: "20px",
+    backgroundColor: "#4CAF50",
+    padding: "20px",
+    borderRadius: "8px",
+    color: "#fff",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+  };
+  
+  const rightSectionStyle: React.CSSProperties = {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    padding: "20px",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+  };
+  
+  const inputStyle: React.CSSProperties = {
+    padding: "10px",
+    borderRadius: "5px",
+    border: "1px solid #ccc",
+    marginBottom: "20px",
+    cursor: "pointer",
+    width: "100%",
+  };
+  
+  const uploadButtonStyle: React.CSSProperties = {
+    padding: "10px 15px",
+    backgroundColor: "#006400",
+    color: "#fff",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    marginTop: "10px",
+    transition: "background-color 0.3s",
+  };
+  
+  const imageStyle: React.CSSProperties = {
+    maxWidth: "100%",
+    maxHeight: "500px",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+  };
+  
+  const responseStyle: React.CSSProperties = {
+    marginTop: "20px",
+    backgroundColor: "#fff",
+    color: "#333",
+    padding: "10px",
+    borderRadius: "5px",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    fontWeight: "bold",
+  };
+  
