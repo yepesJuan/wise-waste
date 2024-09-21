@@ -11,7 +11,7 @@ interface Location {
   percentage: number;
 }
 
-const center: LatLngExpression = [26.21, -80.225]; // Center coordinates for the map
+const center: LatLngExpression = [26.21, -80.259]; // Center coordinates for the map
 
 const createCustomIcon = (color: string) => {
   return new Icon({
@@ -58,7 +58,7 @@ const Map = () => {
   return (
     <MapContainer
       center={center}
-      zoom={13}
+      zoom={14}
       style={{
         height: "500px",
         width: "100%",
