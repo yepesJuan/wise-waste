@@ -5,10 +5,14 @@ import { useTable, Column } from "react-table";
 const Table = () => {
   const data = React.useMemo(
     () => [
-      { stand: "281",Bin_Volume: "3002", street: "sanibel", binPercentage: 40},
-      { stand: "345",Bin_Volume: "3002", street: "lagos de campa", binPercentage: 20},
-      { stand: "754",Bin_Volume: "3002", street: "haitus", binPercentage: 80},
-      { stand: "232",Bin_Volume: "3002", street: "woodmount", binPercentage: 50},
+      { stand: "281",Bin_Volume: "3002", street: "Sanibel", binPercentage: 40},
+      { stand: "345",Bin_Volume: "4023", street: "Lagos de campa", binPercentage: 70},
+      { stand: "754",Bin_Volume: "2564", street: "Versales garden", binPercentage: 80},
+      { stand: "232",Bin_Volume: "3040", street: "Woodmount", binPercentage: 50},
+      { stand: "289",Bin_Volume: "3002", street: "Haitus", binPercentage: 40},
+      { stand: "078",Bin_Volume: "4023", street: "Walmart Neighborhood Market", binPercentage: 90},
+      { stand: "134",Bin_Volume: "2564", street: "Lakeview", binPercentage: 20},
+      { stand: "467",Bin_Volume: "3040", street: "Emrald", binPercentage: 30},
       // Add more rows as needed
     ],
     []
