@@ -22,9 +22,9 @@ h1 {
 
 body {
   background-image: url("/images/bi.webp");
-  background-size: cover; /* Cover the entire page */
-  background-repeat: no-repeat; /* Prevent repeating */
-  background-position: center bottom; /* Ensure the bottom part of the image is visible */
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center bottom;
   min-height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;

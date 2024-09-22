@@ -1,4 +1,3 @@
-// src/components/Table.tsx
 "use client";
 
 import React from "react";
@@ -11,12 +10,11 @@ interface TableData {
   binPercentage: number;
 }
 
-// interface TableProps {
-//   data: TableData[];
-// }
+interface TableProps {
+  data: TableData[];
+}
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Table = ({ data }: any) => {
+const Table = ({ data }: TableProps) => {
   const columns: Column<TableData>[] = React.useMemo(
     () => [
       {
@@ -53,7 +51,7 @@ const Table = ({ data }: any) => {
     useTable({ columns, data });
 
   return (
-    <table {...getTableProps()} style={{ width: "100%", borderCollapse: "collapse", background: "white" }}>
+    <table {...getTableProps()} style={{ width: "100%", borderCollapse: "collapse", background: "white", borderRadius: "4px" }}>
       <thead>
         {headerGroups.map((headerGroup, i) => (
           <tr {...headerGroup.getHeaderGroupProps()} key={`headerGroup-${i}`}>

@@ -50,7 +50,7 @@ export default function Home() {
           <div style={{ width: "60%" }}>
             <Map />
           </div>
-          <div style={{ width: "35%" }}>
+          <div style={{ width: "37%" }}>
             <Table data={tableData}/>
             <ImageUploaderAndApiCaller updateTableRow={updateTableRow}></ImageUploaderAndApiCaller>
 
