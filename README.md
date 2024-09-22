@@ -28,4 +28,5 @@ Visit http://localhost:3000 in your browser.
 Upload an image to check the waste bin volume.
 View the analysis results and track the bin volume percentages in the table and on the map.
 
+## Winners!
 ![Hackathon Winners Image](public/images/IMG_2976.PNG)
