@@ -28,14 +28,3 @@ Visit http://localhost:3000 in your browser.
 Upload an image to check the waste bin volume.
 View the analysis results and track the bin volume percentages in the table and on the map.
 
-### Folder structure
-wise-waste/
-│
-├── public/                 # Public assets
-├── src/
-│   ├── app/                # Main Next.js pages and routing
-│   ├── components/         # React components (Table, ImageUploaderAndApiCaller, etc.)
-│   └── styles/             # CSS and styling files
-│
-├── package.json            # Project dependencies and scripts
-└── README.md               # Project documentation
