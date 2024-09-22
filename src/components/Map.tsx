@@ -33,7 +33,6 @@ const Map = () => {
   const [locations, setLocations] = useState<Location[]>([]);
 
   useEffect(() => {
-    // Sample data, replace this w/ API call
     const data: Location[] = [
       { id: 1, position: [26.2117, -80.2536], percentage: 40 },
       { id: 2, position: [26.2129, -80.27], percentage: 70 },

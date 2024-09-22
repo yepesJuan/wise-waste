@@ -51,7 +51,7 @@ const Table = ({ data }: TableProps) => {
     useTable({ columns, data });
 
   return (
-    <table {...getTableProps()} style={{ width: "100%", borderCollapse: "collapse", background: "white", borderRadius: "4px" }}>
+    <table {...getTableProps()} style={{ width: "100%", borderCollapse: "collapse", background: "white", borderRadius: "4px", border: "1px solid green" }}>
       <thead>
         {headerGroups.map((headerGroup, i) => (
           <tr {...headerGroup.getHeaderGroupProps()} key={`headerGroup-${i}`}>

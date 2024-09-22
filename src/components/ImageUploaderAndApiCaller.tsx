@@ -92,7 +92,7 @@ export default function ImageUploaderAndApiCaller({ updateTableRow }: any) {
 
   return (
     <div style={containerStyle}>
-      <div style={leftSectionStyle}>
+      <div style={{...leftSectionStyle, height: imageBase64 ? "20em" : "8em"}}>
         <h2>Upload Image to Check Volume</h2>
         <input
           type="file"
@@ -131,10 +131,11 @@ export default function ImageUploaderAndApiCaller({ updateTableRow }: any) {
     alignItems: "flex-start",
     padding: "10px",
     backgroundColor: "#f8f8f8",
-    borderRadius: "4px",
+    borderRadius: "2px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     maxWidth: "1200px",
     margin: "0 auto",
+    border: "1px solid green"
   };
   
   const leftSectionStyle: React.CSSProperties = {
@@ -142,7 +143,6 @@ export default function ImageUploaderAndApiCaller({ updateTableRow }: any) {
     backgroundColor: "#4CAF50",
     padding: "10px",
     borderRadius: "4px",
-    height: "20em",
     color: "#fff",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
   };
@@ -163,7 +163,6 @@ export default function ImageUploaderAndApiCaller({ updateTableRow }: any) {
   const inputStyle: React.CSSProperties = {
     padding: "10px",
     borderRadius: "5px",
-    border: "2px solid #ccc",
     marginBottom: "20px",
     cursor: "pointer",
     width: "80%",
@@ -186,6 +185,7 @@ export default function ImageUploaderAndApiCaller({ updateTableRow }: any) {
     maxHeight: "80%",
     borderRadius: "8px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    width: "auto",
   };
   
   const responseStyle: React.CSSProperties = {

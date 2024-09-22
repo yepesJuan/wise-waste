@@ -21,7 +21,7 @@ export default function Home() {
     { stand: "289", Bin_Volume: "3002", street: "Haitus", binPercentage: 40 },
     { stand: "078", Bin_Volume: "4023", street: "Walmart Neighborhood Market", binPercentage: 90 },
     { stand: "134", Bin_Volume: "2564", street: "Lakeview", binPercentage: 20 },
-    { stand: "467", Bin_Volume: "3040", street: "Emrald", binPercentage: 30 },
+    { stand: "467", Bin_Volume: "3040", street: "Emrald", binPercentage: 60 },
   ]);
   
 
